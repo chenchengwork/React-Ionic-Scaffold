@@ -1,0 +1,7 @@
+{
+  "name": "reactIonicScaffold",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "react"
+}

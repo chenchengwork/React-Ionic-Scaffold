@@ -1,0 +1,8 @@
+{
+  "appId": "io.reactIonicScaffold.starter",
+  "appName": "payment",
+  "bundledWebRuntime": false,
+  "npmClient": "npm",
+  "webDir": "build",
+  "cordova": {}
+}
