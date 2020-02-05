@@ -6,6 +6,7 @@
   "scripts": {
     "dev": "node ./scripts/dev.js",
     "build": "node ./scripts/build.js",
+    "output:js": "tsc --outDir output/src --sourceMap false --noEmitOnError false --module es6",
     "createIcon": "node ./scripts/createIcon.js",
     "add-android": "capacitor add android",
     "add-ios": "capacitor add ios",

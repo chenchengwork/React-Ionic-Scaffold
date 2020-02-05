@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import { defineCustomElements } from '@ionic/pwa-elements/loader';
 import App from './App';
 
-ReactDOM.render(<App />, document.getElementById('root'));
+ReactDOM.render(<App />, document.getElementById('wrapper'));
 
 defineCustomElements(window);
 
