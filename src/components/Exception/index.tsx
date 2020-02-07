@@ -45,7 +45,7 @@ const config: Config = {
     },
 };
 
-export default ({ className = "", linkElement = 'a', type, title, desc, img, ...rest }: ExceptionProps) => {
+const ExceptionPage: React.FC<ExceptionProps> = ({ className = "", linkElement = 'a', type, title, desc, img, ...rest }) => {
     const pageType = type in config ? type : '404';
 
     return (
@@ -71,3 +71,6 @@ export default ({ className = "", linkElement = 'a', type, title, desc, img, ...
         </div>
     );
 };
+
+
+export default ExceptionPage;

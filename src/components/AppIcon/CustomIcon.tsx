@@ -40,16 +40,4 @@ CustomIcon.defaultProps = {
 	size: "md",
 };
 
-interface AppIconProps extends IconPropsType{
-	appType: "ant" | "custom";
-}
-
-const AppIcon: React.FC<AppIconProps> = ({appType,...restProps}) => {
-	return appType === "ant" ? <Icon {...restProps} /> : <CustomIcon {...restProps} />
-};
-
-AppIcon.defaultProps = {
-	appType: "custom",
-};
-
 export default CustomIcon;
