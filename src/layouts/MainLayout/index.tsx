@@ -21,7 +21,7 @@ const MainLayout: React.FC<RouteComponentProps> = (props) => {
                 hidden={false}
             >
                 {menus.map((item) => {
-                    const isSelected = (Array.isArray(item.url) ? item.url[0] : [item.url]).includes(props.match.path);
+                    const isSelected = (Array.isArray(item.url) ? item.url : [item.url]).includes(props.match.path);
                     const currentSelectedTab = Array.isArray(item.url) ? item.url[0] : item.url;
 
                     return (
