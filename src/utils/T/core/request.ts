@@ -55,7 +55,7 @@ const Singleton = (function () {
  * @return {Promise}
  * @private
  */
-const _request = (options:AxiosRequestConfig = {}): PromiseResp<any> => {
+const _request = <T>(options:AxiosRequestConfig = {}): PromiseResp<T> => {
     return new Promise((resolve, reject) => {
         const {  apiSuccessCode, errorCode, noLoginCode, invalidParamCode } = respCode;
 
@@ -100,14 +100,14 @@ const _request = (options:AxiosRequestConfig = {}): PromiseResp<any> => {
  * @param {object} options
  * @returns {Promise}
  */
-export function get(url: string, params = {}, options = {}) {
+export function get<T>(url: string, params = {}, options = {}) {
     Object.assign(options, {
         url,
         method: 'get',
         params: params,
     });
 
-    return _request(options);
+    return _request<T>(options);
 }
 
 /**
@@ -117,7 +117,7 @@ export function get(url: string, params = {}, options = {}) {
  * @param {object} options
  * @returns {Promise}
  */
-export function post(url: string, params:StrToAnyObj = {}, options = {}) {
+export function post<T>(url: string, params:StrToAnyObj = {}, options = {}) {
     let requestParams = new URLSearchParams();
     for (let [k, v] of Object.entries(params)) {
         requestParams.append(k, v);
@@ -132,7 +132,7 @@ export function post(url: string, params:StrToAnyObj = {}, options = {}) {
         }
     }, options);
 
-    return _request(options);
+    return _request<T>(options);
 }
 
 
@@ -143,7 +143,7 @@ export function post(url: string, params:StrToAnyObj = {}, options = {}) {
  * @param {object} options
  * @returns {Promise}
  */
-export function postJSON(url: string, params = {}, options = {}) {
+export function postJSON<T>(url: string, params = {}, options = {}) {
     options = Object.assign({
         url,
         method: 'post',
@@ -153,7 +153,7 @@ export function postJSON(url: string, params = {}, options = {}) {
         }
     }, options);
 
-    return _request(options);
+    return _request<T>(options);
 }
 
 
@@ -165,7 +165,7 @@ export function postJSON(url: string, params = {}, options = {}) {
  * @param {Object} options
  * @returns {Promise}
  */
-export function upload(url: string, params:StrToAnyObj = {}, onUploadProgress = (progressEvent: any) => {}, options = {}) {
+export function upload<T>(url: string, params:StrToAnyObj = {}, onUploadProgress = (progressEvent: any) => {}, options = {}) {
     if (!(params instanceof FormData)) {
         let formData = new FormData();
         for (let [k, v] of Object.entries(params)) {
@@ -190,7 +190,7 @@ export function upload(url: string, params:StrToAnyObj = {}, onUploadProgress = 
         }
     }, options);
 
-    return _request(options);
+    return _request<T>(options);
 }
 
 /**
@@ -200,7 +200,7 @@ export function upload(url: string, params:StrToAnyObj = {}, onUploadProgress = 
  * @param {Object} options
  * @returns {Promise}
  */
-export function del(url: string, params = {}, options = {}) {
+export function del<T>(url: string, params = {}, options = {}) {
     options = Object.assign({
         url,
         method: 'delete',
@@ -221,7 +221,7 @@ export function del(url: string, params = {}, options = {}) {
  * @param {Object} options
  * @returns {Promise}
  */
-export function put(url: string, params = {}, options = {}) {
+export function put<T>(url: string, params = {}, options = {}) {
     options = Object.assign({
         url,
         method: 'put',
@@ -231,7 +231,7 @@ export function put(url: string, params = {}, options = {}) {
         }
     }, options);
 
-    return _request(options);
+    return _request<T>(options);
 }
 
 
